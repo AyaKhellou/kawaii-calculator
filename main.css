@@ -1,0 +1,124 @@
+*{
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
+:root{
+    --colorOne :#FFD7E1;
+    --colorTwo : #FF9CB5;
+    --colorThree: #ffe5ec;
+    --shadow: 2px 2px 10px #959595;
+    --shadowTwo:2px 2px 10px #d7d5d5;
+    --mainTransition:all 0.3s ease;
+}
+.calcBody{
+    width: 400px;
+    height: 500px;
+    background-color: var(--colorOne);
+    margin: 50px auto;
+    border-radius: 80px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+.calcBody .screen{
+    height: 15%;
+    background-color: var(--colorTwo);
+    border-radius: 50px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+}
+.calcBody .screen input{
+    border: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: var(--colorTwo);
+    color: white;
+    outline: none;
+    font-size: 37px;
+    text-align: right;
+    padding-right: 30px;
+    transition: var(--mainTransition);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4),
+                -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+.shake {
+    animation: shake 0.3s ease;
+}
+.calcBody .buttons{
+    width: 100%;
+    height: 80%;
+    background-color: var(--colorTwo);
+    margin: 0 auto;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    justify-content: center;
+    align-content: center;
+    grid-column-gap: 22px;
+    grid-row-gap: 9px;
+    box-shadow: var(--shadow);
+}
+.calcBody .buttons button{
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--colorThree);
+    transition: var(--mainTransition);
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: var(--shadowTwo);
+}
+.calcBody .buttons button:hover{
+    background-color: white;
+    transform: scale(1.1);
+}
+.calcBody .buttons button[name="equal-sign"]{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    border-radius: 30px;
+    background-color: #ffd6ff;
+}
+.calcBody .buttons button[name="equal-sign"]:hover{
+    background-color: #c189c1;
+
+}
+/* SETTING DARK/LIGHT MODE */
+.mode{
+    background-color: var(--colorTwo);
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--mainTransition);
+    position: absolute;
+    top:50px;
+    left: 50px;
+    box-shadow: var(--shadowTwo);
+}
+.mode::after{
+    content: "🌞";
+    position: relative;
+    top: 12px;
+}
+.mode.dark::after{
+    content: "🌙";
+}
+body.dark{
+    --colorOne: #2a2e3c;
+    --colorTwo: #6b6d71;
+    --colorThree: #b55e8b;
+    --shadow: 2px 2px 10px #181818;
+    --shadowTwo:2px 2px 10px #282828;
+}
+body.dark .buttons button:hover{
+    background-color: #ea9ec6;
+}
+
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
