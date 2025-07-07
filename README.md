@@ -45,4 +45,4 @@ You can check out the live version [here](https://ayakhellou.github.io/kawaii-ca
 ## 💌 Connect
 
 Wanna say hi or see more of my coding glow-up?
-Follow me on Instagram (@__codaya__)
+Follow me on [Instagram](https://www.instagram.com/__codaya__/)
