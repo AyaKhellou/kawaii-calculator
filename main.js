@@ -99,16 +99,17 @@ allButtons.forEach(button => {
 
 //DARK MODE
 
-let dardModeButton = document.querySelector(".mode");
+let darkModeButton = document.querySelector(".mode i.night");
+let lightModeButton = document.querySelector(".mode i.day");
 
-dardModeButton.onclick = function () {
-    
-    inputField.focus();
-    document.body.classList.toggle("dark");
-    dardModeButton.classList.toggle("dark");
-    
+darkModeButton.onclick = function () {
+    setDarkMode();
+    window.localStorage.setItem("darkMode", "enabled");
 }
-
+lightModeButton.onclick = function () {
+    setLightMode();
+    window.localStorage.setItem("darkMode", "disabled");
+}
 //FUNCTIONS:
 
 //GET THE RESULT FUNCTION:
@@ -128,10 +129,33 @@ function resultFunction() {
     }
 
 }
-
-
 function clearFunction() {
     inputField.value = "";
     displayedVal = [];
 }
+//DARK MODE FUNCTION
 
+function setDarkMode() {
+    document.body.classList.add("dark");
+    darkModeButton.classList.add("dark");
+    darkModeButton.style.opacity = "100%";
+    lightModeButton.style.opacity = "50%";
+}
+
+//LIGHT MODE FUNCTION
+
+function setLightMode() {
+    document.body.classList.remove("dark");
+    darkModeButton.classList.remove("dark");
+    lightModeButton.style.opacity = "100%";
+    darkModeButton.style.opacity = "50%";
+}
+
+
+window.onload = function () {
+    if (window.localStorage.getItem("darkMode") === "enabled") {
+        setDarkMode();
+    } else {
+        setLightMode();
+    }
+}
