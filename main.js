@@ -16,8 +16,6 @@ inputField.value = "";
 
 inputField.addEventListener("keydown", function (event) {
 
-    inputField.focus();
-
     const allowedKeys = [...operators, ".", "Enter", "Backspace", "Delete", "Escape", "="];
 
   // Check if it's a number key
